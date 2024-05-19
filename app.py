@@ -44,6 +44,21 @@ def wczytaj_pracownika():
     )
     return nowy_pracownik
 
+def wykonaj_akcje_podwladni(managerowie, pracownicy):
+    manager_name = input('imie nazwisko managera: ')
+    for m in managerowie:
+        if m.imie_nazwisko == manager_name:
+            print(m)
+            for p in pracownicy:
+                if p.nazwa_dzialu == m.nazwa_dzialu:
+                    print(p)
+
+def wykonaj_akcje_stanowisko(pracownicy):
+    nazwa_stanowiska = input('nazwa stanowiska: ')
+    for p in pracownicy:
+        if p.stanowisko == nazwa_stanowiska:
+            print(p)
+
 
 managerowie = []
 pracownicy = []
@@ -75,22 +90,9 @@ while True:
             if akcja_wewnetrzna == 'koniec':
                 break
             elif akcja_wewnetrzna == 'stanowisko':
-                nazwa_stanowiska = input('nazwa stanowiska: ')
-                for p in pracownicy:
-                    if p.stanowisko == nazwa_stanowiska:
-                        print(p)
+                wykonaj_akcje_stanowisko(pracownicy)
             elif akcja_wewnetrzna == 'podwladni':
-                manager_name = input('imie nazwisko managera: ')
-                # Dla kazdego managera
-                for m in managerowie:
-                    # sprawdz czy to ten, o ktory prosimy
-                    if m.imie_nazwisko == manager_name:
-                        print(m)
-                        # dla kazdego pracownika
-                        for p in pracownicy:
-                            if p.nazwa_dzialu == m.nazwa_dzialu:
-                                # jesli tak, to ypisz pracownika
-                                print(p)
+                wykonaj_akcje_podwladni(managerowie, pracownicy)
             else:
                 print("nie ma takiej komendy")
     else:
