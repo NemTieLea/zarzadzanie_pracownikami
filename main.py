@@ -2,6 +2,10 @@
 Program do obslugi pracownikow.
 
 - utworz
+    ->  czlonek zarzadu
+        - imie nazwisko
+        - lista dzialow ktore nadzoruje
+        - pensja
     -> manager
         - imie nazwisko
         - jakim dzialem kieruje
@@ -12,6 +16,8 @@ Program do obslugi pracownikow.
         - pensja
     -> koniec -> wyjscie na poprzedni poziom programu
 - zarzadzaj
+    -> czlonek zarzadu
+        -> wyswietl managerow dzialow ktore nadzoruje
     -> stanowisko
     -> pobierze nazwe stanowiska
         -> wyswietl wszystkich pracownikow na danym stanowisku i dzial w ktorym pracuja
