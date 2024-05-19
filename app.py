@@ -44,6 +44,7 @@ def wczytaj_pracownika():
     )
     return nowy_pracownik
 
+
 def wykonaj_akcje_podwladni(managerowie, pracownicy):
     manager_name = input('imie nazwisko managera: ')
     for m in managerowie:
@@ -53,11 +54,22 @@ def wykonaj_akcje_podwladni(managerowie, pracownicy):
                 if p.nazwa_dzialu == m.nazwa_dzialu:
                     print(p)
 
+
 def wykonaj_akcje_stanowisko(pracownicy):
     nazwa_stanowiska = input('nazwa stanowiska: ')
     for p in pracownicy:
         if p.stanowisko == nazwa_stanowiska:
             print(p)
+
+
+def wykonaj_akcje_bilans(managerowie, pracownicy):
+    print('wykonuje bilans')
+    suma_pensji = 0
+    for m in managerowie:
+        suma_pensji += m.pensja
+    for p in pracownicy:
+        suma_pensji += p.pensja
+    print(f"Suma pensji to: {suma_pensji}")
 
 
 managerowie = []
@@ -93,6 +105,8 @@ while True:
                 wykonaj_akcje_stanowisko(pracownicy)
             elif akcja_wewnetrzna == 'podwladni':
                 wykonaj_akcje_podwladni(managerowie, pracownicy)
+            elif akcja_wewnetrzna == 'bilans':
+                wykonaj_akcje_bilans(managerowie, pracownicy)
             else:
                 print("nie ma takiej komendy")
     else:
